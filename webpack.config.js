@@ -52,5 +52,5 @@ module.exports = {
 			}
 		]
 	},
-	plugins: [htmlWebpack, vueLoader, hotModuleReplacement]
+	plugins: [htmlWebpack, vueLoader, hotModuleReplacement],
 };
