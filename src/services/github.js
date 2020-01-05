@@ -2,7 +2,7 @@ import axios from 'axios';
 import config from '../config';
 
 const { githubAPIUrl, githubAPIToken } = config;
-const validateStatus = false;
+const validateStatus = () => true;
 
 export const getUser = userName =>
   new Promise(async (resolve, reject) => {

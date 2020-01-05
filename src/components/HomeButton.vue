@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'BackButton',
+  name: 'HomeButton',
 };
 </script>
 

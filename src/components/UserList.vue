@@ -16,7 +16,10 @@
 export default {
   name: 'UserList',
   props: {
-    data: Array,
+    data: {
+      type: Array,
+      required: true,
+    },
   },
 };
 </script>

@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-
-import NotFound from './pages/NotFound.vue';
+import NotFound from './pages/NotFound';
 
 Vue.use(Router);
 
@@ -19,7 +18,7 @@ export default new Router({
       path: '/:user',
       name: 'user-repos',
       component: () =>
-        import(/* webpackChunkName: "Repositories" */ './pages/Repos.vue'),
+        import(/* webpackChunkName: "Repositories" */ './pages/Repositories.vue'),
       children: [
         {
           path: ':repo',
