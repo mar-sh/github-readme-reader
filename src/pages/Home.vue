@@ -8,7 +8,7 @@
       <base-input
         type="text"
         class="form-control mr-2"
-        placeholder="Input a github username e.g gaearon"
+        placeholder="Input a github username e.g yyx990803"
         :value="searchInput"
         autofocus
         autocomplete="off"
@@ -17,7 +17,7 @@
       <button class="btn btn-outline-primary">Search user</button>
     </form>
     <div v-if="isLoading" key="search-loading">
-      <loader text="Searching" />
+      <loader text="Searching user" />
     </div>
 
     <div>

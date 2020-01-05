@@ -1,6 +1,6 @@
 <template>
   <router-link to="/">
-    <button class="btn btn-lg btn-outline">
+    <button class="btn btn-lg btn-outline px-1">
       <span class="lead"> 🔙 Go Back to home</span>
     </button>
   </router-link>

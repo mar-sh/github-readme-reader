@@ -23,10 +23,10 @@ export const getUser = userName =>
     }
   });
 
-export const getUserClosestMatch = searchUserName =>
+export const getUserClosestMatch = userName =>
   new Promise(async (resolve, reject) => {
     try {
-      const url = `${githubAPIUrl}/search/users?q=${searchUserName}`;
+      const url = `${githubAPIUrl}/search/users?q=${userName}`;
       const { data: response } = await axios({
         method: 'get',
         url,

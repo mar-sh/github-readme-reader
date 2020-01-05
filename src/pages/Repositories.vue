@@ -7,7 +7,7 @@
       </p>
 
       <a
-        class=" btn btn-outline-success text-dark col-sm-12 col-md-3 align-self-center"
+        class=" btn btn-outline-success font-weight-bold col-sm-12 col-md-3 align-self-center"
         id="user-name"
         :href="userGithub"
         target="__blank"
@@ -69,7 +69,7 @@ export default {
           params: { user },
         } = this.$route;
         const response = await getUserRepos(user);
-        
+
         if (response.message) throw new Error(response.message);
         if (!response.length)
           throw new Error('There is no repository to display.');
