@@ -1,10 +1,10 @@
 <template>
   <div id="readme">
-    <div v-if="isLoading">
+    <div v-if="isLoading" key="readme-loading">
       <loader text="Fetching Readme" />
     </div>
 
-    <div v-if="!isLoading" class="overflow-auto">
+    <div v-if="!isLoading" class="overflow-auto" key="readme-result">
       <div class="d-flex justify-content-between">
         <p class="lead font-weight-bold">{{ `${repoName}'s README` }}</p>
         <span class="align-self-center"
@@ -14,7 +14,8 @@
       <hr />
       <vue-markdown v-if="readmeContent" :source="readmeContent"></vue-markdown>
     </div>
-    <div v-if="isError">
+
+    <div v-if="isError" key="readme-error">
       <error-text :text="errorMessage" />
     </div>
   </div>
@@ -29,11 +30,13 @@ import { getReadme } from '@/services/github';
 
 export default {
   name: 'Reader',
+
   components: {
     ErrorText,
     Loader,
     VueMarkdown,
   },
+
   data() {
     return {
       errorMessage: '',
@@ -41,13 +44,16 @@ export default {
       readmeContent: '',
     };
   },
+
   created() {
     this.onLoadGetReadme();
   },
+
   mounted() {
     const readmeDiv = document.getElementById('readme');
     readmeDiv.scrollIntoView();
   },
+
   methods: {
     async onLoadGetReadme() {
       try {
@@ -73,6 +79,7 @@ export default {
       }
     },
   },
+
   computed: {
     userName() {
       const {

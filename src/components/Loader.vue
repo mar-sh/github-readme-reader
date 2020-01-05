@@ -6,7 +6,10 @@
 export default {
   name: 'Loader',
   props: {
-    text: { type: String, default: 'Loading' },
+    text: {
+      type: String,
+      default: 'Loading',
+    },
     intervalSpeed: {
       type: Number,
       default: 200,

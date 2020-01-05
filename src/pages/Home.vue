@@ -16,18 +16,19 @@
       />
       <button class="btn btn-outline-primary">Search user</button>
     </form>
-    <div v-if="isLoading">
+    <div v-if="isLoading" key="search-loading">
       <loader text="Searching" />
     </div>
+
     <div>
-      <div v-if="foundClosestMatch">
-        <p class="text-center h5">
+      <div v-if="foundClosestMatch" key="search-closest">
+        <p class="text-center h4">
           We didn't find that username, perhaps you were looking for:
         </p>
         <user-list :data="closestMatchList" />
       </div>
 
-      <div v-if="isError">
+      <div v-if="isError" key="search-error">
         <error-text :text="errorMessage" />
       </div>
     </div>
@@ -39,6 +40,7 @@ import ErrorText from '@/components/ErrorText';
 import BaseInput from '@/components/BaseInput';
 import Loader from '@/components/Loader';
 import UserList from '@/components/UserList';
+
 import { getUser, getUserClosestMatch } from '@/services/github';
 
 export default {
@@ -48,7 +50,8 @@ export default {
     ErrorText,
     Loader,
     UserList,
-  },
+	},
+	
   data() {
     return {
       closestMatchList: [],
@@ -58,7 +61,8 @@ export default {
       isNoClosestMatch: false,
       searchInput: '',
     };
-  },
+	},
+	
   methods: {
     onChangeText(text) {
       this.searchInput = text;
@@ -119,7 +123,8 @@ export default {
             'Something wrong happened. Please try again or reload the page.';
       }
     },
-  },
+	},
+	
   computed: {
     foundClosestMatch() {
       return this.isNoExactMatch && this.closestMatchList.length;

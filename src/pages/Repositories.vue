@@ -16,13 +16,15 @@
     </div>
     <hr />
 
-    <div v-if="isLoading">
+    <div v-if="isLoading" key="search-loading">
       <loader text="Fetching repos" />
     </div>
+
     <div>
       <repo-list v-if="isUserRepos" :data="userRepos"></repo-list>
     </div>
-    <div v-if="isError">
+
+    <div v-if="isError" key="search-error">
       <error-text :text="errorMessage" />
     </div>
     <router-view :key="$route.fullPath"></router-view>
@@ -39,12 +41,14 @@ import { getUserRepos } from '@/services/github';
 
 export default {
   name: 'Repos',
+
   components: {
     ErrorText,
     Loader,
     HomeButton,
     RepoList,
   },
+
   data() {
     return {
       errorMessage: '',
@@ -52,19 +56,20 @@ export default {
       userRepos: [],
     };
   },
+
   created() {
     this.onLoadGetUserRepos();
   },
+
   methods: {
     async onLoadGetUserRepos() {
       try {
         this.isLoading = true;
-
         const {
           params: { user },
         } = this.$route;
-
         const response = await getUserRepos(user);
+        
         if (response.message) throw new Error(response.message);
         if (!response.length)
           throw new Error('There is no repository to display.');
@@ -81,17 +86,20 @@ export default {
       }
     },
   },
+
   computed: {
     userName() {
       const {
         params: { user },
       } = this.$route;
+
       return user;
     },
     userGithub() {
       const {
         params: { user },
       } = this.$route;
+
       return `https://github.com/${user}`;
     },
     isUserRepos() {

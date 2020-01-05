@@ -5,7 +5,7 @@
 <script>
 export default {
   name: 'BaseInput',
-  inheritAttrs: false,
+  // inheritAttrs: false,
   props: {
     value: String,
   },

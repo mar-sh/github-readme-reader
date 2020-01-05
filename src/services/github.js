@@ -1,5 +1,5 @@
 import axios from 'axios';
-import config from '../config';
+import config from '@/config';
 
 const { githubAPIUrl, githubAPIToken } = config;
 const validateStatus = () => true;
@@ -35,6 +35,7 @@ export const getUserClosestMatch = searchUserName =>
         },
         validateStatus,
       });
+
       resolve(response);
     } catch (error) {
       reject(error);
@@ -73,6 +74,7 @@ export const getReadme = (repoOwner, repo) =>
         },
         validateStatus,
       });
+
       resolve(response);
     } catch (error) {
       reject(error);
