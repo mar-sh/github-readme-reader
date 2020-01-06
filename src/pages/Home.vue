@@ -23,7 +23,8 @@
     <div>
       <div v-if="foundClosestMatch" key="search-closest">
         <p class="text-center h4">
-          We didn't find that username, perhaps you were looking for:
+          We didn't find a github profile with that username, perhaps you were
+          looking for:
         </p>
         <user-list :data="closestMatchList" />
       </div>
@@ -50,8 +51,8 @@ export default {
     ErrorText,
     Loader,
     UserList,
-	},
-	
+  },
+
   data() {
     return {
       closestMatchList: [],
@@ -61,8 +62,8 @@ export default {
       isNoClosestMatch: false,
       searchInput: '',
     };
-	},
-	
+  },
+
   methods: {
     onChangeText(text) {
       this.searchInput = text;
@@ -123,8 +124,8 @@ export default {
             'Something wrong happened. Please try again or reload the page.';
       }
     },
-	},
-	
+  },
+
   computed: {
     foundClosestMatch() {
       return this.isNoExactMatch && this.closestMatchList.length;

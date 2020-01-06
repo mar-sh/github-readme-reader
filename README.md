@@ -49,3 +49,11 @@ npm run build
 
 - The application is using personal access token with rate limit of 5000 GET (non-search API) requests and 30 GET (search API) requests per hour.
 - Partial search keyword has to be complete partial e.g **gaear** will suggest **gaear**on, **gaear**az, etc. but **gaearol** won't suggest **gaearon**.
+
+
+## Changelog
+- Add BaseInput component that emits an input event and use the component in homepage's search form.
+- Loading is now Loader and has simple animation.
+- Error now thrown as an error object.
+- All conditional rendering that uses 2 or more property are now using instance computed property.
+- Use vue.min.js on production build
